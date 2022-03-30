@@ -1,0 +1,14 @@
+﻿
+
+@{ }
+
+
+@model IEnumerable<string>
+
+<div class="d-grid gap-2">
+    <a asp-controller="Home" asp-action="Index" asp-route-teamName="" class="btn shadow rounded @(ViewBag.SelectedTeamname == null ? "btn-primary" : "btn-secondary")">Home</a> 
+    @foreach (string text in Model)
+    {
+        <a asp-controller="Home" asp-action="Index" asp-route-teamName="@text" class="btn shadow rounded @(ViewBag.SelectedTeamname == text ? "btn-primary" : "btn-secondary")">@text</a>
+    }
+</div>
