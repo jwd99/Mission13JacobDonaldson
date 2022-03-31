@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Bowler
+@{
+}
+
+<form id="bowlerForm" method="post" asp-controller="Home" asp-action="AddBowlerForm">
+    <div asp-validation-summary="All"></div>
+    <label for="bowFirstName">First Name</label>
+    <input class="form-control" id="bowFirstName" type="text" placeholder="Enter the first name..." asp-for="BowlerFirstName" />
+
+    <label for="bowLastName">Last Name</label>
+    <input class="form-control" id="bowLastName" type="text" placeholder="Enter the last name..." asp-for="BowlerLastName" />
+
+    <label for="bowMidName">Last Name</label>
+    <input class="form-control" id="bowLastName" type="text" placeholder="Enter the Middle Initial..." asp-for="BowlerMiddleInit" />
+
+    <label for="bowAddress">Address</label>
+    <input class="form-control" id="bowAddress" type="text" placeholder="Enter the address..." asp-for="BowlerAddress" />
+
+    <label for="bowCity">City</label>
+    <input class="form-control" id="bowCity" type="text" placeholder="Enter the city..." asp-for="BowlerCity" />
+
+    <label for="bowState">State</label>
+    <input class="form-control" id="bowState" type="text" placeholder="Enter the state..." asp-for="BowlerState" />
+
+    <label for="bowZip">State</label>
+    <input class="form-control" id="bowZip" type="text" placeholder="Enter the zipcode..." asp-for="BowlerZip" />
+
+    <label for="bowNum">State</label>
+    <input class="form-control" id="bowNum" type="text" placeholder="Enter the phone number..." asp-for="BowlerPhoneNumber" />
+
+    <select>
+        <option></option>-->
+        @*@foreach (var t in Model.Team)
+            {
+            <option value=""></option>
+            }*@
+
+        </select>
+</form>

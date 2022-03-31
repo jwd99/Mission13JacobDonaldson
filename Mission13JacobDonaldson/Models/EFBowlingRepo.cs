@@ -13,5 +13,20 @@ namespace Mission13JacobDonaldson.Models
             _context = temp;
         }
         public IQueryable<Bowler> Bowlers => _context.Bowlers;
+
+        public void SaveBowler(Bowler b)
+        {
+            _context.SaveChanges();
+        }   
+        public void CreateBowler(Bowler b)
+        {
+            _context.Add(b);
+            _context.SaveChanges();
+        }   
+        public void DeleteBowler(Bowler b)
+        {//delete works
+            _context.Bowlers.Remove(b);
+            _context.SaveChanges();
+        }
     }
 }
