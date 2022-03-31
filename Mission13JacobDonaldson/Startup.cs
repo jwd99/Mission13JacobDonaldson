@@ -56,7 +56,7 @@ namespace Mission13JacobDonaldson
 
             app.UseEndpoints(endpoints =>
             {
-                
+              
                 endpoints.MapControllerRoute(
                    "teamName", "{teamName}", new { Controller = "Home", action = "Index" });
                 endpoints.MapControllerRoute(

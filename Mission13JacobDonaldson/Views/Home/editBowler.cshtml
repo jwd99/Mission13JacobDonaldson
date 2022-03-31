@@ -5,38 +5,36 @@
 @{
 }
 
-<form id="bowlerForm" method="post" asp-controller="Home" asp-action="AddBowlerForm">
+<form id="bowlerForm" method="post" asp-controller="Home" asp-action="EditBowlerForm">
     <div asp-validation-summary="All"></div>
     <label for="bowFirstName">First Name</label>
-    <input class="form-control" id="bowFirstName" type="text" placeholder="Enter the first name..." asp-for="BowlerFirstName" />
+    <input class="form-control" id="bowFirstName" type="text" placeholder="Enter the first name..." asp-for="BowlerFirstName" value="@ViewBag.bowler.BowlerFirstName" />
 
     <label for="bowLastName">Last Name</label>
-    <input class="form-control" id="bowLastName" type="text" placeholder="Enter the last name..." asp-for="BowlerLastName" />
+    <input class="form-control" id="bowLastName" type="text" placeholder="Enter the last name..." asp-for="BowlerLastName" value="@ViewBag.bowler.BowlerLastName" />
 
     <label for="bowMidName">Last Name</label>
-    <input class="form-control" id="bowLastName" type="text" placeholder="Enter the Middle Initial..." asp-for="BowlerMiddleInit" />
+    <input class="form-control" id="bowLastName" type="text" placeholder="Enter the Middle Initial..." asp-for="BowlerMiddleInit" value="@ViewBag.bowler.BowlerMiddleInit" />
 
     <label for="bowAddress">Address</label>
-    <input class="form-control" id="bowAddress" type="text" placeholder="Enter the address..." asp-for="BowlerAddress" />
+    <input class="form-control" id="bowAddress" type="text" placeholder="Enter the address..." asp-for="BowlerAddress" value="@ViewBag.bowler.BowlerAddress" />
 
     <label for="bowCity">City</label>
-    <input class="form-control" id="bowCity" type="text" placeholder="Enter the city..." asp-for="BowlerCity" />
+    <input class="form-control" id="bowCity" type="text" placeholder="Enter the city..." asp-for="BowlerCity" value="@ViewBag.bowler.BowlerCity" />
 
     <label for="bowState">State</label>
-    <input class="form-control" id="bowState" type="text" placeholder="Enter the state..." asp-for="BowlerState" />
+    <input class="form-control" id="bowState" type="text" placeholder="Enter the state..." asp-for="BowlerState" value="@ViewBag.bowler.BowlerState" />
 
     <label for="bowZip">State</label>
-    <input class="form-control" id="bowZip" type="text" placeholder="Enter the zipcode..." asp-for="BowlerZip" />
+    <input class="form-control" id="bowZip" type="text" placeholder="Enter the zipcode..." asp-for="BowlerZip" value="@ViewBag.bowler.BowlerZip" />
 
     <label for="bowNum">State</label>
-    <input class="form-control" id="bowNum" type="text" placeholder="Enter the phone number..." asp-for="BowlerPhoneNumber" />
+    <input class="form-control" id="bowNum" type="text" placeholder="Enter the phone number..." asp-for="BowlerPhoneNumber" value="@ViewBag.bowler.BowlerPhoneNumber" />
 
-    <select>
-        <option></option>-->
-        @*@foreach (var t in Model.Team)
-            {
-            <option value=""></option>
-            }*@
 
-        </select>
+    <label for="bowTeam">Team Name</label>
+    <input class="form-control" id="bowTeam" type="text" placeholder="Enter the team name..." asp-for="Team.TeamName" value="@ViewBag.bowler.Team.TeamName" />
+
+    <button type="submit" class="btn btn-success btn-primary text-center">Confirm New Bowler</button>
+
 </form>

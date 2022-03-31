@@ -36,20 +36,29 @@ namespace Mission13JacobDonaldson.Controllers
             return View(holderthing);
         }
         //editbowler
-        //[HttpGet]
-        //public IActionResult EditBowlerForm(Bowler bwl)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.SaveBowler(bwl);
-        //        return View("Confirmation", bwl);
-        //    }
-        //    else
-        //    {
-        //        return View("Index", bwl);
-        //    }
-        //}
+        [HttpGet]
+        public IActionResult EditBowlerForm(int id, int teamid)
+        {
+            ViewBag.bowler = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
+            ViewBag.team = _context.Bowlers.Include(b => b.Team)
+                .Where(t => t.Team.TeamID == teamid).ToList();
+            return View("editBowler");
+           
+        }
+        [HttpPost]
+        public IActionResult EditBowlerForm(Bowler bwl)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.SaveBowler(bwl);
+                return View("Confirmation", bwl);
+            }
+            else
+            {
+                return View("Index", bwl);
+            }
 
+        }
         [HttpGet]
         public IActionResult createBowlerForm()
         {
