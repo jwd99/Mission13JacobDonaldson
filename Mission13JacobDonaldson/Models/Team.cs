@@ -12,6 +12,7 @@ namespace Mission13JacobDonaldson.Models
         [Required]
         public int TeamID { get; set; }
 
+        [Required]
         public string TeamName { get; set; }
       
 

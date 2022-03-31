@@ -5,32 +5,32 @@
 
 <form id="bowlerForm" method="post" asp-controller="Home" asp-action="createBowlerForm">
     <div asp-validation-summary="All"></div>
-    <label for="bowFirstName">First Name</label>
+    <label asp-for="BowlerFirstName">First Name</label>
     <input class="form-control" id="bowFirstName" type="text" placeholder="Enter the first name..." asp-for="BowlerFirstName" />
 
-    <label for="bowLastName">Last Name</label>
+    <label asp-for="BowlerLastName">Last Name</label>
     <input class="form-control" id="bowLastName" type="text" placeholder="Enter the last name..." asp-for="BowlerLastName" />
 
-    <label for="bowMidName">Last Name</label>
+    <label asp-for="BowlerMiddleInit">Last Name</label>
     <input class="form-control" id="bowLastName" type="text" placeholder="Enter the Middle Initial..." asp-for="BowlerMiddleInit" />
 
-    <label for="bowAddress">Address</label>
+    <label asp-for="BowlerAddress">Address</label>
     <input class="form-control" id="bowAddress" type="text" placeholder="Enter the address..." asp-for="BowlerAddress" />
 
-    <label for="bowCity">City</label>
+    <label asp-for="BowlerCity">City</label>
     <input class="form-control" id="bowCity" type="text" placeholder="Enter the city..." asp-for="BowlerCity" />
 
-    <label for="bowState">State</label>
+    <label asp-for="BowlerState">State</label>
     <input class="form-control" id="bowState" type="text" placeholder="Enter the state..." asp-for="BowlerState" />
 
-    <label for="bowZip">State</label>
+    <label asp-for="BowlerZip">Zipcode</label>
     <input class="form-control" id="bowZip" type="text" placeholder="Enter the zipcode..." asp-for="BowlerZip" />
 
-    <label for="bowNum">State</label>
+    <label asp-for="BowlerPhoneNumber">Phone Number</label>
     <input class="form-control" id="bowNum" type="text" placeholder="Enter the phone number..." asp-for="BowlerPhoneNumber" />
 
-    <label for="bowTeam">Team Name</label>
+    <label asp-for="Team.TeamName">Team Name</label>
     <input class="form-control" id="bowTeam" type="text" placeholder="Enter the team name..." asp-for="Team.TeamName" />
-
+    <br />
     <button type="submit" class="btn btn-success btn-primary text-center">Confirm New Bowler</button>
 </form>

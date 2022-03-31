@@ -42,27 +42,30 @@ namespace Mission13JacobDonaldson.Controllers
             ViewBag.bowler = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
             ViewBag.team = _context.Bowlers.Include(b => b.Team)
                 .Where(t => t.Team.TeamID == teamid).ToList();
-            return View("editBowler");
+            return View();
            
         }
         [HttpPost]
-        public IActionResult EditBowlerForm(Bowler bwl)
+        public IActionResult EditBowlerForm(Bowler bwl, int id)
         {
             if (ModelState.IsValid)
             {
-                _context.SaveBowler(bwl);
-                return View("Confirmation", bwl);
+                var editBow = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
+                _context.SaveBowler(editBow);
+                
+                return View("Confirmation");
             }
             else
-            {
-                return View("Index", bwl);
+            {//needs validation fix
+              
+                return View();
             }
 
         }
         [HttpGet]
         public IActionResult createBowlerForm()
         {
-            return View("createBowler");
+            return View();
         }
 
         [HttpPost]
@@ -70,13 +73,14 @@ namespace Mission13JacobDonaldson.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 _context.CreateBowler(bwl);
             
                 return View("Confirmation", bwl);
             }
             else
             {
-                return View("Index", bwl);
+                return View();
             }
         }
 
