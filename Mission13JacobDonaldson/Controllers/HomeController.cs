@@ -46,12 +46,12 @@ namespace Mission13JacobDonaldson.Controllers
            
         }
         [HttpPost]
-        public IActionResult EditBowlerForm(Bowler bwl, int id)
+        public IActionResult EditBowlerForm(Bowler bwl)
         {
             if (ModelState.IsValid)
             {
-                var editBow = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
-                _context.SaveBowler(editBow);
+           
+                _context.SaveBowler(bwl);
                 
                 return View("Confirmation");
             }
