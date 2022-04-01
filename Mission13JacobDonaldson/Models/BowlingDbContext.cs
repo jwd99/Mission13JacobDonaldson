@@ -12,5 +12,6 @@ namespace Mission13JacobDonaldson.Models
         { }
 
         public DbSet<Bowler> Bowlers {get; set;}
+        public DbSet<Team> Teams { get; set; }
     }
 }

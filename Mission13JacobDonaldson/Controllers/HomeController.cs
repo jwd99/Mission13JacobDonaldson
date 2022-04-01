@@ -39,10 +39,12 @@ namespace Mission13JacobDonaldson.Controllers
         [HttpGet]
         public IActionResult EditBowlerForm(int id, int teamid)
         {
-            ViewBag.bowler = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
-            ViewBag.team = _context.Bowlers.Include(b => b.Team)
-                .Where(t => t.Team.TeamID == teamid).ToList();
-            return View();
+            var holder = _context.Bowlers.Single(x => x.BowlerID == id);
+            //ViewBag.bowler = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
+            ViewBag.Trent = _context.Teams.Single(x=> x.TeamID == teamid);
+                //_context.Bowlers.Include(b => b.Team)
+                //.Where(b => b.BowlerID == id).ToList();
+            return View("EditBowlerForm", holder);
            
         }
         [HttpPost]
@@ -52,8 +54,9 @@ namespace Mission13JacobDonaldson.Controllers
             {
            
                 _context.SaveBowler(bwl);
+               
                 
-                return View("Confirmation");
+                return View("Confirmation", bwl);
             }
             else
             {//needs validation fix

@@ -8,6 +8,7 @@ namespace Mission13JacobDonaldson.Models
     public interface IBowlingRepo
     {
         IQueryable<Bowler> Bowlers { get; }
+        IQueryable<Team> Teams { get; }
 
 
         void SaveBowler(Bowler b);
