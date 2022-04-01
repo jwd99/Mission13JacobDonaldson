@@ -13,10 +13,10 @@ namespace Mission13JacobDonaldson.Controllers
     public class HomeController : Controller
     {
        
-        private IBowlingRepo _context { get; set; }
+        private IBowlingRepo context { get; set; }
         public HomeController(IBowlingRepo hold)
         {
-            _context = hold;
+            context = hold;
         }
 
         public IActionResult Index(string teamName)
@@ -29,9 +29,9 @@ namespace Mission13JacobDonaldson.Controllers
             {
                 ViewBag.TeamName = "Bowlers";
             }
-            var holderthing = _context.Bowlers
-                .Include(b=>b.Team)
-                .Where(t =>t.Team.TeamName == teamName || teamName == null)
+            var holderthing = context.Bowlers
+                .Include(b=>b.Teams)
+                .Where(t =>t.Teams.TeamName == teamName || teamName == null)
                 .ToList();
             return View(holderthing);
         }
@@ -39,9 +39,10 @@ namespace Mission13JacobDonaldson.Controllers
         [HttpGet]
         public IActionResult EditBowlerForm(int id, int teamid)
         {
-            var holder = _context.Bowlers.Single(x => x.BowlerID == id);
+            
+            var holder = context.Bowlers.Single(x => x.BowlerID == id);
             //ViewBag.bowler = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
-            ViewBag.Trent = _context.Teams.Single(x=> x.TeamID == teamid);
+            ViewBag.Trent = context.Teams.Single(x=> x.TeamID == teamid);
                 //_context.Bowlers.Include(b => b.Team)
                 //.Where(b => b.BowlerID == id).ToList();
             return View("EditBowlerForm", holder);
@@ -52,8 +53,8 @@ namespace Mission13JacobDonaldson.Controllers
         {
             if (ModelState.IsValid)
             {
-           
-                _context.SaveBowler(bwl);
+          
+                context.SaveBowler(bwl);
                
                 
                 return View("Confirmation", bwl);
@@ -77,7 +78,7 @@ namespace Mission13JacobDonaldson.Controllers
             if (ModelState.IsValid)
             {
 
-                _context.CreateBowler(bwl);
+                context.CreateBowler(bwl);
             
                 return View("Confirmation", bwl);
             }
@@ -91,10 +92,10 @@ namespace Mission13JacobDonaldson.Controllers
         [HttpGet]
         public IActionResult deleteBowler(int id)
         {
-            var delBow = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
+            var delBow = context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
             if (delBow != null)
             {
-                _context.DeleteBowler(delBow);
+                context.DeleteBowler(delBow);
             }
             return RedirectToAction("Index");
         }

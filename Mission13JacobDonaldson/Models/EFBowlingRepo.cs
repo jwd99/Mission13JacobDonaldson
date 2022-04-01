@@ -7,27 +7,28 @@ namespace Mission13JacobDonaldson.Models
 {
     public class EFBowlingRepo : IBowlingRepo
     {
-        private BowlingDbContext _context { get; set; }
+        private BowlingDbContext context { get; set; }
         public EFBowlingRepo(BowlingDbContext temp)
         {
-            _context = temp;
+            context = temp;
         }
-        public IQueryable<Bowler> Bowlers => _context.Bowlers;
-        public IQueryable<Team> Teams => _context.Teams;
+        public IQueryable<Bowler> Bowlers => context.Bowlers;
+        public IQueryable<Team> Teams => context.Teams;
 
         public void SaveBowler(Bowler b)
         {
-            _context.SaveChanges();
+            context.Update(b);
+            context.SaveChanges();
         }   
         public void CreateBowler(Bowler b)
         {
-            _context.Add(b);
-            _context.SaveChanges();
+            context.Add(b);
+            context.SaveChanges();
         }   
         public void DeleteBowler(Bowler b)
         {//delete works
-            _context.Bowlers.Remove(b);
-            _context.SaveChanges();
+            context.Bowlers.Remove(b);
+            context.SaveChanges();
         }
     }
 }

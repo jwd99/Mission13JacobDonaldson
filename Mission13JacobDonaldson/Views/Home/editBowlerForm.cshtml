@@ -5,10 +5,12 @@
 @{
 }
 
-<form id="bowlerForm" method="post" asp-controller="Home" asp-action="EditBowlerForm">
+<form method="post" asp-controller="Home" asp-action="EditBowlerForm">
     <div asp-validation-summary="All"></div>
+    
     <input asp-for="BowlerID" type="hidden" hidden />
-    <input asp-for="TeamID"value="@ViewBag.Trent.TeamID" type="hidden" hidden />
+    <input asp-for="Teams.TeamID" value="@ViewBag.Trent.TeamID" type="hidden" hidden/>
+    <input asp-for="TeamID" value="@ViewBag.Trent.TeamID" type="hidden" hidden/>
     <label asp-for="BowlerFirstName">First Name</label>
     <input class="form-control" id="bowFirstName" type="text" placeholder="Enter the first name..." asp-for="BowlerFirstName" />
 
@@ -34,8 +36,8 @@
     <input class="form-control" id="bowNum" type="text" placeholder="Enter the phone number..." asp-for="BowlerPhoneNumber" />
 
 
-    <label asp-for="Team.TeamName">Team Name</label>
-    <input asp-for="Team.TeamName"class="form-control" id="bowTeam" type="text" placeholder="Enter the team name..." value="@ViewBag.Trent.TeamName" required />
+    <label asp-for="Teams.TeamName">Team Name</label>
+    <input asp-for="Teams.TeamName"class="form-control" id="bowTeam" type="text" placeholder="Enter the team name..." value="@ViewBag.Trent.TeamName" required />
 
     <br />
     <button type="submit" class="btn btn-success btn-primary text-center">Confirm New Bowler</button>

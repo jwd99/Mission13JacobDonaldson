@@ -11,7 +11,6 @@ namespace Mission13JacobDonaldson.Models
     {
         [Key]
         [Required]
-        [BindNever]
         public int BowlerID { get; set; }
         [Required]
         public string BowlerLastName { get; set; }
@@ -32,6 +31,6 @@ namespace Mission13JacobDonaldson.Models
         
         public int TeamID { get; set; }
         [Required]
-        public Team Team { get; set; }
+        public Team Teams { get; set; }
     }
 }

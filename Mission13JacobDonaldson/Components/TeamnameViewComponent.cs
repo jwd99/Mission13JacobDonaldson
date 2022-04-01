@@ -22,7 +22,7 @@ namespace Mission13JacobDonaldson.Components
             ViewBag.SelectedTeamname = RouteData?.Values["teamName"];
 
             var teamnames = repo.Bowlers
-                .Select(t => t.Team.TeamName)
+                .Select(t => t.Teams.TeamName)
                 .Distinct()
                 .OrderBy(t => t);
 
