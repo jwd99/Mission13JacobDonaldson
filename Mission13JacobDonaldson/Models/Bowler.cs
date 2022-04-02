@@ -22,6 +22,7 @@ namespace Mission13JacobDonaldson.Models
         [Required]
         public string BowlerCity { get; set; }
         [Required]
+        [MaxLength(2)]
         public string BowlerState { get; set; }
         [Required]
         public string BowlerZip { get; set; }

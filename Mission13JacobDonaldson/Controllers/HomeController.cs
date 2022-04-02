@@ -69,6 +69,7 @@ namespace Mission13JacobDonaldson.Controllers
         [HttpGet]
         public IActionResult createBowlerForm()
         {
+            ViewBag.TeamHold = context.Teams.ToList();
             return View();
         }
 
@@ -84,6 +85,7 @@ namespace Mission13JacobDonaldson.Controllers
             }
             else
             {
+                ViewBag.TeamHold = context.Teams.ToList();
                 return View();
             }
         }
