@@ -9,8 +9,8 @@
     <div asp-validation-summary="All"></div>
     
     <input asp-for="BowlerID" type="hidden" hidden />
-    <input asp-for="Teams.TeamID" value="@ViewBag.Trent.TeamID" type="hidden" hidden/>
-    <input asp-for="TeamID" value="@ViewBag.Trent.TeamID" type="hidden" hidden/>
+    @*<input asp-for="Teams.TeamID" value="@ViewBag.Trent.TeamID" type="hidden" hidden/>
+    <input asp-for="TeamID" value="@ViewBag.Trent.TeamID" type="hidden" hidden/>*@
     <label asp-for="BowlerFirstName">First Name</label>
     <input class="form-control" id="bowFirstName" type="text" placeholder="Enter the first name..." asp-for="BowlerFirstName" />
 
@@ -35,9 +35,17 @@
     <label asp-for="BowlerPhoneNumber">Phone Number</label>
     <input class="form-control" id="bowNum" type="text" placeholder="Enter the phone number..." asp-for="BowlerPhoneNumber" />
 
+    <label asp-for="TeamID"></label>
+    <select asp-for="TeamID" class="form-select">
+        @foreach(var x in ViewBag.TeamHold)
+            {
+            <option value="@x.TeamID">@x.TeamName</option>
+            }
 
-    <label asp-for="Teams.TeamName">Team Name</label>
-    <input asp-for="Teams.TeamName"class="form-control" id="bowTeam" type="text" placeholder="Enter the team name..." value="@ViewBag.Trent.TeamName" required />
+    </select>
+
+    @*<label asp-for="Teams.TeamName">Team Name</label>
+    <input asp-for="Teams.TeamName"class="form-control" id="bowTeam" type="text" placeholder="Enter the team name..." value="@ViewBag.Trent.TeamName" required />*@
 
     <br />
     <button type="submit" class="btn btn-success btn-primary text-center">Confirm New Bowler</button>

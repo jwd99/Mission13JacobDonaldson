@@ -42,7 +42,7 @@ namespace Mission13JacobDonaldson.Controllers
             
             var holder = context.Bowlers.Single(x => x.BowlerID == id);
             //ViewBag.bowler = _context.Bowlers.FirstOrDefault(b => b.BowlerID == id);
-            ViewBag.Trent = context.Teams.Single(x=> x.TeamID == teamid);
+            ViewBag.TeamHold = context.Teams.ToList();
                 //_context.Bowlers.Include(b => b.Team)
                 //.Where(b => b.BowlerID == id).ToList();
             return View("EditBowlerForm", holder);

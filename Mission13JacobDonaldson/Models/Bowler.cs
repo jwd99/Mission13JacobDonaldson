@@ -30,7 +30,6 @@ namespace Mission13JacobDonaldson.Models
         //Team table connector
         
         public int TeamID { get; set; }
-        [Required]
         public Team Teams { get; set; }
     }
 }
