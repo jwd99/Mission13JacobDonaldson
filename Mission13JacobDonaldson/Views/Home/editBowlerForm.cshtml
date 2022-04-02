@@ -35,8 +35,8 @@
     <label asp-for="BowlerPhoneNumber">Phone Number</label>
     <input class="form-control" id="bowNum" type="text" placeholder="Enter the phone number..." asp-for="BowlerPhoneNumber" />
 
-    <label asp-for="TeamID"></label>
-    <select asp-for="TeamID" class="form-select">
+    <label asp-for="TeamID">Team</label>
+    <select asp-for="TeamID" class="custom-select">
         @foreach(var x in ViewBag.TeamHold)
             {
             <option value="@x.TeamID">@x.TeamName</option>
@@ -46,7 +46,7 @@
 
     @*<label asp-for="Teams.TeamName">Team Name</label>
     <input asp-for="Teams.TeamName"class="form-control" id="bowTeam" type="text" placeholder="Enter the team name..." value="@ViewBag.Trent.TeamName" required />*@
-
+    <br />
     <br />
     <button type="submit" class="btn btn-success btn-primary text-center">Confirm New Bowler</button>
     @*asp-route-id="@ViewBag.bowler.BowlerID"*@
